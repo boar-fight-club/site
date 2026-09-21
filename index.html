@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boar Fight Club — Центр єдиноборств у Харкові</title>
+    <!-- Підключаємо шрифти -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1c1c1c;
+            --border-color: #333333;
+            --accent-color: #ffffff;
+            --text-main: #ffffff;
+            --text-muted: #aaaaaa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Шапка */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #fff;
+            background: #000;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 900;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--text-muted);
+        }
+
+        nav {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 12px;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            color: var(--text-muted);
+        }
+
+        /* Перший екран (Hero) */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(rgba(18,18,18,0.75), rgba(18,18,18,0.92)), url('https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 120px 20px 60px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            max-width: 900px;
+        }
+
+        .hero p {
+            font-size: 17px;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+
+        .btn {
+            background-color: #ffffff;
+            color: #000000;
+            padding: 15px 35px;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: transform 0.2s, background-color 0.2s;
+            letter-spacing: 1px;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: #dedede;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.1);
+            color: #ffffff;
+        }
+
+        /* Міні-інфо панель у Hero */
+        .hero-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .hero-feature-card {
+            background: rgba(28, 28, 28, 0.7);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
+            text-align: left;
+        }
+
+        .hero-feature-card h4 {
+            font-size: 16px;
+            font-weight: 800;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .hero-feature-card p {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* Загальні секції */
+        section {
+            padding: 90px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 34px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+            letter-spacing: 1px;
+        }
+
+        .section-title span {
+            color: var(--text-muted);
+        }
+
+        /* Про клуб */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+
+        /* Напрямки */
+        .directions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .direction-card {
+            background: var(--card-bg);
+            padding: 30px 25px;
+            text-align: center;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            color: var(--text-main);
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .direction-card:hover {
+            border-color: #ffffff;
+            transform: translateY(-4px);
+            background: #1f1f1f;
+        }
+
+        .direction-card span {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-top: 8px;
+            text-transform: none;
+        }
+
+        /* Блоки тренерів */
+        .trainer-profile-section {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 40px;
+            margin-bottom: 40px;
+            scroll-margin-top: 100px;
+        }
+
+        .trainer-profile-grid {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .trainer-big-img {
+            width: 100%;
+            height: 420px;
+            background-size: cover;
+            background-position: center center;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+        }
+
+        .trainer-details h3 {
+            font-size: 28px;
+            font-weight: 900;
+            margin-bottom: 5px;
+        }
+
+        .trainer-details .role-badge {
+            display: inline-block;
+            background: #333;
+            color: #fff;
+            padding: 4px 12px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .trainer-details p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .trainer-details ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .trainer-details ul li {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .trainer-details ul li::before {
+            content: "▪";
+            position: absolute;
+            left: 0;
+            color: #fff;
+        }
+
+        /* Контакти / Футер */
+        footer {
+            background: #0b0b0b;
+            padding: 60px 20px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer-content h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .footer-content p {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 850px) {
+            .about-grid, .trainer-profile-grid, .hero-features {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 36px;
+            }
+            nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка -->
+    <header>
+        <div class="logo-container">
+            <img src="https://i.postimg.cc/7Z3hNXgL/photo-2026-09-21-12-42-53.jpg" alt="Boar Logo" class="logo-img">
+            <div class="logo">Boar <span>Fight Club</span></div>
+        </div>
+        <nav>
+            <a href="#about">Про клуб</a>
+            <a href="#directions">Напрямки</a>
+            <a href="#trainers">Тренери</a>
+            <a href="#contacts">Контакти</a>
+        </nav>
+    </header>
+
+    <!-- Перший екран (Hero) -->
+    <section class="hero">
+        <div class="hero-badge">Харків • Стадіон Металіст</div>
+        <h1>Територія сильних характером у <span>Boar Fight Club</span></h1>
+        <p>Професійний клуб єдиноборств у Харкові. Розвивай фізичну силу, стійкість та техніку під керівництвом досвідчених наставників.</p>
+        
+        <div class="hero-buttons">
+            <a href="#directions" class="btn">Обрати напрямок</a>
+            <a href="#contacts" class="btn btn-outline">Зв'язатися з нами</a>
+        </div>
+
+        <div class="hero-features">
+            <div class="hero-feature-card">
+                <h4>Профі-тренери</h4>
+                <p>Титуловані спортсмени та діючі бійці з великим досвідом.</p>
+            </div>
+            <div class="hero-feature-card">
+                <h4>Для всіх рівнів</h4>
+                <p>Програми для новачків з нуля, аматорів та професіоналів.</p>
+            </div>
+            <div class="hero-feature-card">
+                <h4>Потужна атмосфера</h4>
+                <p>Дисципліна, дружня команда та розвиток бійцівського духу.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Про клуб -->
+    <section id="about">
+        <h2 class="section-title">Про наш <span>клуб</span></h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p><strong>Boar Fight Club</strong> був заснований у <strong>2021 році</strong> в Харкові як сучасний центр бойових мистецтв, що об'єднує під одним дахом найкращі бійцівські дисципліни. Клуб розташований у зручному місці на території стадіону «Металіст».</p>
+                <p>Наша головна мета — не просто навчити наносити удари чи проводити прийоми, а створити середовище, де кожен вихованець загартовує характер, стає дисциплінованішим, впевненішим у собі та фізично міцнішим.</p>
+                <p>Ми відкриті як для дорослих, так і для наймолодших спортсменів. Індивідуальний підхід до кожного дозволяє досягати високих результатів незалежно від вашої початкової підготовки.</p>
+            </div>
+            <div style="background: url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80') center/cover; height: 380px; border-radius: 8px; border: 1px solid var(--border-color);"></div>
+        </div>
+    </section>
+
+    <!-- Напрямки (з точними якірними переходами на відповідних тренерів) -->
+    <section id="directions" style="background: #151515;">
+        <h2 class="section-title">Наші <span>напрямки</span></h2>
+        <p style="text-align: center; color: var(--text-muted); margin-top: -30px; margin-bottom: 40px; font-size: 14px;">Оберіть напрямок, щоб плавно перейти до профільних тренерів:</p>
+        
+        <div class="directions-grid">
+            <a href="#trainer-igor" class="direction-card">
+                Кікбоксинг
+                <span>Ігор Кавиршин</span>
+            </a>
+            <a href="#group-boxing" class="direction-card">
+                Класичний Бокс
+                <span>Богдан та Віталій Татарчук</span>
+            </a>
+            <a href="#trainer-alexander" class="direction-card">
+                Тайський бокс (Муай-Тай)
+                <span>Олександр Чурсін</span>
+            </a>
+            <a href="#group-mma" class="direction-card">
+                ММА (Змішані єдиноборства)
+                <span>Віталій Ярмак та Максим Нурець</span>
+            </a>
+            <a href="#trainer-anna" class="direction-card">
+                Жіноча самооборона
+                <span>Анна Кавиршина</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- РОЗДІЛ ТРЕНЕРІВ (Суворий порядок та точні якорі) -->
+    <section id="trainers">
+        <h2 class="section-title">Наші <span>Тренери</span></h2>
+
+        <!-- 1. Ігор Кавиршин -->
+        <div class="trainer-profile-section" id="trainer-igor">
+            <div class="trainer-profile-grid">
+                <div class="trainer-big-img" style="background-image: url('https://i.postimg.cc/g0nXsGjG/IMG-20260921-114756-768.jpg');"></div>
+                <div class="trainer-details">
+                    <h3>Ігор Кавиршин</h3>
+                    <div class="role-badge">Кікбоксинг • Засновник клубу</div>
+                    <p>Відомий український спортсмен, засновник та ідейний натхненник клубу Boar Fight Club. Людина, яка присвятила життя розвитковий бойових мистецтв.</p>
+                    <ul>
+                        <li><strong>Досягнення:</strong> Чемпіон Європи, призер Чемпіонату світу з карате, багаторазовий чемпіон України з кікбоксингу.</li>
+                        <li><strong>Школа:</strong> Переймав досвід під керівництвом визнаних майстрів старої школи.</li>
+                        <li><strong>Регалії:</strong> Віцепрезидент Федерації кікбоксингу ISKA у Харківській області, тренер збірної України з кікбоксингу (тренер-викладач 1-ї категорії).</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Анна Кавиршина -->
+        <div class="trainer-profile-section" id="trainer-anna">
+            <div class="trainer-profile-grid">
+                <div class="trainer-big-img" style="background-image: url('https://i.postimg.cc/NjLjqpcp/IMG-20260921-114756-776.jpg');"></div>
+                <div class="trainer-details">
+                    <h3>Анна Кавиршина</h3>
+                    <div class="role-badge">Бокс / Кікбоксинг / Жіноча самооборона</div>
+                    <p>Професійний тренер із боксу та кікбоксингу, експерт із функціонального та силового розвитку для кожного.</p>
+                    <ul>
+                        <li><strong>Підхід:</strong> Формування правильної техніки ударів, розвиток витривалості, координації та впевненості у власних силах.</li>
+                        <li><strong>Спеціалізація:</strong> Робота з новачками, постановка багатства рухів у ринзі та ефективні програми жіночої самооборони.</li>
+                        <li><strong>Атмосфера:</strong> Заняття проходять динамічно, з максимальною увагою до деталей та технічної безпеки.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Артем Воляньский -->
+        <div class="trainer-profile-section" id="trainer-artem">
+            <div class="trainer-profile-grid">
+                <div class="trainer-big-img" style="background-image: url('https://i.postimg.cc/PxygqnbL/IMG-20260921-114758-783.jpg');"></div>
+                <div class="trainer-details">
+                    <h3>Артем Воляньский</h3>
+                    <div class="role-badge">Тренер єдиноборств • Нове ім'я в клубi</div>
+                    <p>Молодий і амбітний тренер, який розпочинає свій яскравий шлях у клубі та відкриває набір у свою першу тренувальну групу.</p>
+                    <ul>
+                        <li><strong>Програма тренувань:</strong> Комплексна підготовка, що ідеально поєднує вивчення ударної техніки, розвиток фізичних кондицій та загартування бійцівського характеру.</li>
+                        <li><strong>Розклад занять:</strong> Понеділок, середа, п'ятниця о 16:00.</li>
+                        <li><strong>Ціль:</strong> Побудувати міцну базу з нуля, дати мотивацію та правильний старт кожному учню.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Олександр Чурсин -->
+        <div class="trainer-profile-section" id="trainer-alexander">
+            <div class="trainer-profile-grid">
+                <div class="trainer-big-img" style="background-image: url('https://i.postimg.cc/63xWZKGP/IMG-20260921-114757-067.jpg');"></div>
+                <div class="trainer-details">
+                    <h3>Олександр Чурсін</h3>
+                    <div class="role-badge">Муай-Тай (Тайський бокс)</div>
+                    <p>Досвідчений наставник із тайського боксу. Знає все про жорстку ударну школу та ефективне ведення бою на ближній і дальніх дистанціях.</p>
+                    <ul>
+                        <li><strong>Техніка:</strong> Постановка потужних ударів руками, ногами, ліктями та колінами, а також впевнена робота в клінчі.</li>
+                        <li><strong>Розвиток:</strong> Виховання вибухової сили, ментальної стійкості та залізної дисципліни.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. Віталій Ярмак (ММА - Частина 1) -->
+        <div class="trainer-profile-section" id="group-mma">
+            <div class="trainer-profile-grid">
+                <div class="trainer-big-img" style="background-image: url('https://i.postimg.cc/YqCpYbh2/IMG-20260921-114756-705.jpg');"></div>
+                <div class="trainer-details">
+                    <h3>Віталій Ярмак</h3>
+                    <div class="role-badge">ММА (Змішані єдиноборства)</div>
+                    <p>Діючий професійний спортсмен та тренер зі змішаних єдиноборств. Знає про ММА зсередини на найвищому рівні.</p>
+                    <ul>
+                        <li><strong>Спеціалізація:</strong> Поєднання ударної техніки в стійці з борцівською роботою в партері та переводами.</li>
+                        <li><strong>Підхід:</strong> Розвиток бійцівського IQ, швидкого прийняття рішень у нестандартних ситуаціях та витривалості.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. Богдан Татарчук (Бокс - Частина 1) -->
+        <div class="trainer-profile-section" id="group-boxing">
+            <div class="trainer-profile-grid">
+                <div class="trainer-big-img" style="background-image: url('https://i.postimg.cc/mD44DSvT/IMG-20260921-114756-607.jpg');"></div>
+                <div class="trainer-details">
+                    <h3>Богдан Татарчук</h3>
+                    <div class="role-badge">Класичний Бокс</div>
+                    <p>Тренер із класичного боксу, який приділяє особливу увагу академічній школі, швидкій робоці ніг та чистоті ударів.</p>
+                    <ul>
+                        <li><strong>Особливості:</strong> Швидкість рук, захисна техніка, робота на лапах і мішках, розвиток тактичного мислення в рингу.</li>
+                        <li><strong>Результат:</strong> Впевнена та чітка біомеханіка рухів для кожного вихованця.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 7. Віталій Татарчук (Бокс - Частина 2) -->
+        <div class="trainer-profile-section" id="trainer-vitaliy-t">
+            <div class="trainer-profile-grid">
+                <div class="trainer-big-img" style="background-image: url('https://i.postimg.cc/v83yYfXP/IMG-20260921-114757-280.jpg');"></div>
+                <div class="trainer-details">
+                    <h3>Віталій Татарчук</h3>
+                    <div class="role-badge">Класичний Бокс</div>
+                    <p>Професійний тренер із класичного боксу. Допомагає учням опанувати класичну школу удару та захисту.</p>
+                    <ul>
+                        <li><strong>Спрямованість:</strong> Постановка нокаутуючого удару, робота над захисними комбінаціями та загальна фізична підготовка.</li>
+                        <li><strong>Для кого:</strong> Ефективні тренування як для новачків, так і для тих, хто прагне вдосконалити боксерські навички.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. Максим Нурець (ММА - Частина 2) -->
+        <div class="trainer-profile-section" id="trainer-maksim">
+            <div class="trainer-profile-grid">
+                <div class="trainer-big-img" style="background-image: url('https://i.postimg.cc/W4LLWnbZ/IMG-20260921-114756-633.jpg');"></div>
+                <div class="trainer-details">
+                    <h3>Максим Нурець</h3>
+                    <div class="role-badge">ММА / Силова підготовка</div>
+                    <p>Тренер зі змішаних єдиноборств та атлетичної підготовки спортсменів.</p>
+                    <ul>
+                        <li><strong>Спеціалізація:</strong> Розвиток функціональної сили, вибухової потужності та атлетизму, необхідних для сучасного бійця ММА.</li>
+                        <li><strong>Стиль:</strong> Інтенсивні та системні навантаження для виховання вольових якостей.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Контакти / Футер -->
+    <footer id="contacts">
+        <div class="footer-content">
+            <h2>Boar <span>Fight Club</span></h2>
+            <p>📍 Адреса: м. Харків, вул. Георгія Тарасенка, стадіон «Металіст»<br>📞 Телефон: +38 (066) 689-95-16</p>
+            <div class="footer-socials">
+                <a href="https://instagram.com/boar.fight.club" class="btn" target="_blank">Instagram</a>
+                <a href="https://www.tiktok.com/@boar.kickboxing.team" class="btn btn-outline" target="_blank">TikTok</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
