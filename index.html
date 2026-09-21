@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boar Fight Club — Центр єдиноборств у Харкові</title>
-    <!-- Підключаємо шрифти -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --bg-color: #121212;
@@ -33,7 +33,6 @@
             line-height: 1.6;
         }
 
-        /* Шапка */
         header {
             position: fixed;
             top: 0;
@@ -96,7 +95,6 @@
             color: var(--text-muted);
         }
 
-        /* Перший екран (Hero) */
         .hero {
             min-height: 100vh;
             background: linear-gradient(rgba(18,18,18,0.75), rgba(18,18,18,0.92)), url('https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
@@ -174,7 +172,6 @@
             color: #ffffff;
         }
 
-        /* Міні-інфо панель у Hero */
         .hero-features {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -205,7 +202,6 @@
             margin: 0;
         }
 
-        /* Загальні секції */
         section {
             padding: 90px 20px;
             max-width: 1100px;
@@ -225,7 +221,6 @@
             color: var(--text-muted);
         }
 
-        /* Про клуб */
         .about-grid {
             display: grid;
             grid-template-columns: 1.2fr 0.8fr;
@@ -239,7 +234,6 @@
             font-size: 15px;
         }
 
-        /* Напрямки */
         .directions-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -277,7 +271,6 @@
             text-transform: none;
         }
 
-        /* Блоки тренерів */
         .trainer-profile-section {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -348,7 +341,6 @@
             color: #fff;
         }
 
-        /* Контакти / Футер */
         footer {
             background: #0b0b0b;
             padding: 60px 20px;
@@ -379,6 +371,46 @@
             flex-wrap: wrap;
         }
 
+        .social-btn {
+            padding: 14px 28px;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: transform 0.2s, opacity 0.2s;
+            letter-spacing: 1px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: #ffffff;
+            font-size: 14px;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        .btn-instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+
+        .btn-tiktok {
+            background-color: #000000;
+            border: 2px solid #25f4ee;
+            box-shadow: 0 0 12px rgba(37, 244, 238, 0.3);
+            color: #ffffff;
+        }
+        
+        .btn-tiktok i {
+            color: #ffffff;
+            text-shadow: -2px 0 #fe2c55, 2px 2px #25f4ee;
+        }
+
+        .btn-youtube {
+            background-color: #ff0000;
+        }
+
         @media (max-width: 850px) {
             .about-grid, .trainer-profile-grid, .hero-features {
                 grid-template-columns: 1fr;
@@ -394,7 +426,6 @@
 </head>
 <body>
 
-    <!-- Шапка -->
     <header>
         <div class="logo-container">
             <img src="https://i.postimg.cc/7Z3hNXgL/photo-2026-09-21-12-42-53.jpg" alt="Boar Logo" class="logo-img">
@@ -408,7 +439,6 @@
         </nav>
     </header>
 
-    <!-- Перший екран (Hero) -->
     <section class="hero">
         <div class="hero-badge">Харків • Стадіон Металіст</div>
         <h1>Територія сильних характером у <span>Boar Fight Club</span></h1>
@@ -435,20 +465,18 @@
         </div>
     </section>
 
-    <!-- Про клуб -->
     <section id="about">
         <h2 class="section-title">Про наш <span>клуб</span></h2>
         <div class="about-grid">
             <div class="about-text">
-                <p><strong>Boar Fight Club</strong> був заснований у <strong>2021 році</strong> в Харкові як сучасний центр бойових мистецтв, що об'єднує під одним дахом найкращі бійцівські дисципліни. Клуб розташований у зручному місці на території стадіону «Металіст».</p>
+                <p><strong>Boar Fight Club</strong> був заснований <strong>3 серпня 2019 році</strong> в Харкові як сучасний центр бойових мистецтв, що об'єднує під одним дахом найкращі бійцівські дисципліни. Клуб розташований у зручному місці на території стадіону «Металіст».</p>
                 <p>Наша головна мета — не просто навчити наносити удари чи проводити прийоми, а створити середовище, де кожен вихованець загартовує характер, стає дисциплінованішим, впевненішим у собі та фізично міцнішим.</p>
                 <p>Ми відкриті як для дорослих, так і для наймолодших спортсменів. Індивідуальний підхід до кожного дозволяє досягати високих результатів незалежно від вашої початкової підготовки.</p>
             </div>
-            <div style="background: url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80') center/cover; height: 380px; border-radius: 8px; border: 1px solid var(--border-color);"></div>
+            <div style="background: url('https://i.postimg.cc/fynN3QJW/channels4-profile.jpg') center/cover; height: 380px; border-radius: 8px; border: 1px solid var(--border-color);"></div>
         </div>
     </section>
 
-    <!-- Напрямки (з точними якірними переходами на відповідних тренерів) -->
     <section id="directions" style="background: #151515;">
         <h2 class="section-title">Наші <span>напрямки</span></h2>
         <p style="text-align: center; color: var(--text-muted); margin-top: -30px; margin-bottom: 40px; font-size: 14px;">Оберіть напрямок, щоб плавно перейти до профільних тренерів:</p>
@@ -477,11 +505,9 @@
         </div>
     </section>
 
-    <!-- РОЗДІЛ ТРЕНЕРІВ (Суворий порядок та точні якорі) -->
     <section id="trainers">
         <h2 class="section-title">Наші <span>Тренери</span></h2>
 
-        <!-- 1. Ігор Кавиршин -->
         <div class="trainer-profile-section" id="trainer-igor">
             <div class="trainer-profile-grid">
                 <div class="trainer-big-img" style="background-image: url('https://i.postimg.cc/g0nXsGjG/IMG-20260921-114756-768.jpg');"></div>
@@ -498,7 +524,6 @@
             </div>
         </div>
 
-        <!-- 2. Анна Кавиршина -->
         <div class="trainer-profile-section" id="trainer-anna">
             <div class="trainer-profile-grid">
                 <div class="trainer-big-img" style="background-image: url('https://i.postimg.cc/NjLjqpcp/IMG-20260921-114756-776.jpg');"></div>
@@ -515,7 +540,6 @@
             </div>
         </div>
 
-        <!-- 3. Артем Воляньский -->
         <div class="trainer-profile-section" id="trainer-artem">
             <div class="trainer-profile-grid">
                 <div class="trainer-big-img" style="background-image: url('https://i.postimg.cc/PxygqnbL/IMG-20260921-114758-783.jpg');"></div>
@@ -532,7 +556,6 @@
             </div>
         </div>
 
-        <!-- 4. Олександр Чурсин -->
         <div class="trainer-profile-section" id="trainer-alexander">
             <div class="trainer-profile-grid">
                 <div class="trainer-big-img" style="background-image: url('https://i.postimg.cc/63xWZKGP/IMG-20260921-114757-067.jpg');"></div>
@@ -548,7 +571,6 @@
             </div>
         </div>
 
-        <!-- 5. Віталій Ярмак (ММА - Частина 1) -->
         <div class="trainer-profile-section" id="group-mma">
             <div class="trainer-profile-grid">
                 <div class="trainer-big-img" style="background-image: url('https://i.postimg.cc/YqCpYbh2/IMG-20260921-114756-705.jpg');"></div>
@@ -564,7 +586,6 @@
             </div>
         </div>
 
-        <!-- 6. Богдан Татарчук (Бокс - Частина 1) -->
         <div class="trainer-profile-section" id="group-boxing">
             <div class="trainer-profile-grid">
                 <div class="trainer-big-img" style="background-image: url('https://i.postimg.cc/mD44DSvT/IMG-20260921-114756-607.jpg');"></div>
@@ -580,7 +601,6 @@
             </div>
         </div>
 
-        <!-- 7. Віталій Татарчук (Бокс - Частина 2) -->
         <div class="trainer-profile-section" id="trainer-vitaliy-t">
             <div class="trainer-profile-grid">
                 <div class="trainer-big-img" style="background-image: url('https://i.postimg.cc/v83yYfXP/IMG-20260921-114757-280.jpg');"></div>
@@ -596,7 +616,6 @@
             </div>
         </div>
 
-        <!-- 8. Максим Нурець (ММА - Частина 2) -->
         <div class="trainer-profile-section" id="trainer-maksim">
             <div class="trainer-profile-grid">
                 <div class="trainer-big-img" style="background-image: url('https://i.postimg.cc/W4LLWnbZ/IMG-20260921-114756-633.jpg');"></div>
@@ -614,14 +633,21 @@
 
     </section>
 
-    <!-- Контакти / Футер -->
     <footer id="contacts">
         <div class="footer-content">
             <h2>Boar <span>Fight Club</span></h2>
             <p>📍 Адреса: м. Харків, вул. Георгія Тарасенка, стадіон «Металіст»<br>📞 Телефон: +38 (066) 689-95-16</p>
+            
             <div class="footer-socials">
-                <a href="https://instagram.com/boar.fight.club" class="btn" target="_blank">Instagram</a>
-                <a href="https://www.tiktok.com/@boar.kickboxing.team" class="btn btn-outline" target="_blank">TikTok</a>
+                <a href="https://instagram.com/boar.fight.club" class="social-btn btn-instagram" target="_blank">
+                    <i class="fa-brands fa-instagram"></i> Instagram
+                </a>
+                <a href="https://www.tiktok.com/@boar.kickboxing.team" class="social-btn btn-tiktok" target="_blank">
+                    <i class="fa-brands fa-tiktok"></i> TikTok
+                </a>
+                <a href="https://www.youtube.com/@BOARFIGHTCLUB" class="social-btn btn-youtube" target="_blank">
+                    <i class="fa-brands fa-youtube"></i> YouTube
+                </a>
             </div>
         </div>
     </footer>
