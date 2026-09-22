@@ -347,6 +347,8 @@
             grid-template-columns: 1fr 1fr;
             gap: 30px;
             align-items: start;
+            margin-bottom: 40px;
+            scroll-margin-top: 100px;
         }
 
         .price-card {
@@ -390,8 +392,98 @@
             font-size: 16px;
         }
 
+        .schedule-standalone-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            scroll-margin-top: 100px;
+        }
+
+        .schedule-standalone-title {
+            font-size: 26px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 35px;
+            text-align: center;
+            letter-spacing: 1px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 15px;
+        }
+
+        .schedule-grid-days {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 30px;
+}
+
+        .schedule-day-box {
+            background: #161616;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+        }
+
+        .schedule-day-box:last-child {
+            grid-column: 1 / -1;
+            max-width: 500px; 
+            margin: 0 auto;
+            width: 100%;
+}
+
+        .schedule-day-box h4 {
+            font-size: 16px;
+            font-weight: 900;
+            color: #000;
+            background: #fff;
+            padding: 10px 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            text-align: center;
+        }
+
+        .schedule-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            gap: 15px;
+        }
+
+        .schedule-item:last-child {
+            border-bottom: none;
+        }
+
+        .sched-time {
+            font-weight: 800;
+            color: #fff;
+            background: rgba(255,255,255,0.08);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 13px;
+            white-space: nowrap;
+        }
+
+        .sched-info {
+            flex-grow: 1;
+            font-weight: 600;
+            font-size: 14px;
+            color: #ddd;
+        }
+
+        .sched-trainer {
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--text-muted);
+            text-align: right;
+            white-space: nowrap;
+        }
+
         .price-conditions {
-            margin-top: 30px;
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 8px;
@@ -539,8 +631,8 @@
             font-size: 13px;
         }
 
-        @media (max-width: 850px) {
-            .about-grid, .trainer-profile-grid, .hero-features, .prices-container, .directions-grid, .footer-info-grid {
+        @media (max-width: 950px) {
+            .prices-container, .about-grid, .trainer-profile-grid, .hero-features, .directions-grid {
                 grid-template-columns: 1fr;
             }
             .hero h1 {
@@ -564,6 +656,7 @@
             <a href="#directions">Напрямки</a>
             <a href="#trainers">Тренери</a>
             <a href="#prices">Прайс</a>
+            <a href="#schedule">Розклад</a>
             <a href="#contacts">Зв'язатися з нами</a>
         </nav>
     </header>
@@ -576,7 +669,7 @@
         <div class="hero-buttons">
             <a href="#directions" class="btn btn-outline">Обрати напрямок</a>
             <a href="#prices" class="btn btn-outline">Дивитися прайс</a>
-            <a href="#contacts" class="btn btn-outline">Зв'язатися з нами</a>
+            <a href="#schedule" class="btn btn-outline">Розклад занять</a>
         </div>
 
         <div class="hero-features">
@@ -614,15 +707,15 @@
         <div class="directions-grid">
             <a href="#trainer-igor" class="direction-card">
                 Кікбоксинг
-                <span>Ігор Кавиршин / Дарина Файзуліна / Артем Волянський</span>
+                <span>Ігор Кавиршин / Дарина Файзуліна</span>
             </a>
             <a href="#group-boxing" class="direction-card">
                 Класичний Бокс
-                <span>Богдан / Віталій Татарчук</span>
+                <span>Богдан та Віталій Татарчук</span>
             </a>
             <a href="#group-mma" class="direction-card">
                 ММА (Змішані єдиноборства)
-                <span>Віталій Ярмак / Максим Норець</span>
+                <span>Віталій Ярмак та Максим Норець</span>
             </a>
             <a href="#trainer-alexander" class="direction-card">
                 Тайський бокс (Муай-Тай)
@@ -634,7 +727,7 @@
             </a>
             <a href="#trainer-anna" class="direction-card">
                 Жіноча самооборона
-                <span>Анна Кавиршина / Дарина Файзуліна</span>
+                <span>Анна Кавиршина та Дарина Файзуліна</span>
             </a>
         </div>
     </section>
@@ -652,7 +745,7 @@
                     <ul>
                         <li><strong>Досягнення:</strong> Чемпіон Європи, призер Чемпіонату світу з карате, багаторазовий чемпіон України з кікбоксингу.</li>
                         <li><strong>Школа:</strong> Переймав досвід під керівництвом визнаних майстрів старої школи.</li>
-                        <li><strong>Регалії:</strong> Віце-президент Федерації кікбоксингу ISKA у Харківській області, тренер збірної України з кікбоксингу (тренер-викладач 1-ї категорії).</li>
+                        <li><strong>Регалії:</strong> Віцепрезидент Федерації кікбоксингу ISKA у Харківській області, тренер збірної України з кікбоксингу (тренер-викладач 1-ї категорії).</li>
                     </ul>
                 </div>
             </div>
@@ -678,7 +771,7 @@
             <div class="trainer-profile-grid">
                 <div class="trainer-big-img" style="background-image: url('https://i.postimg.cc/PxygqnbL/IMG-20260921-114758-783.jpg');"></div>
                 <div class="trainer-details">
-                    <h3>Артем Волянський</h3>
+                    <h3>Артем Воляньский</h3>
                     <div class="role-badge">Тренер єдиноборств • Нове ім'я в клубi</div>
                     <p>Молодий і амбітний тренер, який розпочинає свій яскравий шлях у клубі та відкриває набір у свою першу тренувальну групу.</p>
                     <ul>
@@ -714,9 +807,8 @@
                     <div class="role-badge">Муай-Тай (Тайський бокс)</div>
                     <p>Досвідчений наставник із тайського боксу. Знає все про жорстку ударну школу та ефективне ведення бою на ближній і дальніх дистанціях.</p>
                     <ul>
-                        <li><strong>Техніка:</strong> Постановка потужних ударів руками, ногами, ліктями та колінами, а також впевнена робота в клінчі та на виходах із нього.</li>
-                        <li><strong>Спеціалізація:</strong> Розвиток вибухової сили, ментальної стійкості, функціональної витривалості та залізної дисципліни.</li>
-                        <li><strong>Підхід:</strong> Індивідуальна робота над технічним арсеналом кожного вихованця, підготовка до змагань та впевненої самооборони.</li>
+                        <li><strong>Техніка:</strong> Постановка потужних ударів руками, ногами, ліктями та колінами, а також впевнена робота в клінчі.</li>
+                        <li><strong>Розвиток:</strong> Виховання вибухової сили, ментальної стійкості та залізної дисципліни.</li>
                     </ul>
                 </div>
             </div>
@@ -730,9 +822,8 @@
                     <div class="role-badge">ММА (Змішані єдиноборства)</div>
                     <p>Діючий професійний спортсмен та тренер зі змішаних єдиноборств. Знає про ММА зсередини на найвищому рівні.</p>
                     <ul>
-                        <li><strong>Спеціалізація:</strong> Гармонійне поєднання ударної техніки в стійці з борцівською роботою в партері, переводами та болевими прийомами.</li>
-                        <li><strong>Підхід:</strong> Розвиток бійцівського IQ, здатності швидко приймати рішення у нестандартних ситуаціях та підвищення загальної витривалості.</li>
-                        <li><strong>Ціль:</strong> Виховання універсальних бійців, готових до повноцінної конкуренції як в аматорах, так і в профі.</li>
+                        <li><strong>Спеціалізація:</strong> Поєднання ударної техніки в стійці з борцівською роботою в партері та переводами.</li>
+                        <li><strong>Підхід:</strong> Розвиток бійцівського IQ, швидкого прийняття рішень у нестандартних ситуаціях та витривалості.</li>
                     </ul>
                 </div>
             </div>
@@ -746,9 +837,8 @@
                     <div class="role-badge">Класичний Бокс</div>
                     <p>Тренер із класичного боксу, який приділяє особливу увагу академічній школі, швидкій робоці ніг та чистоті ударів.</p>
                     <ul>
-                        <li><strong>Особливості:</strong> Швидкість рук, вивірена захисна техніка, професійна робота на лапах і мішках, розвиток тактичного мислення в рингу.</li>
-                        <li><strong>Підхід:</strong> Побудова міцної бази з нуля для новачків та вдосконалення технічних комбінацій для досвідченіших атлетів.</li>
-                        <li><strong>Результат:</strong> Впевнена координація, чітка біомеханіка рухів та високий рівень самоконтролю.</li>
+                        <li><strong>Особливості:</strong> Швидкість рук, захисна техніка, робота на лапах і мішках, розвиток тактичного мислення в рингу.</li>
+                        <li><strong>Результат:</strong> Впевнена та чітка біомеханіка рухів для кожного вихованця.</li>
                     </ul>
                 </div>
             </div>
@@ -762,9 +852,8 @@
                     <div class="role-badge">Класичний Бокс</div>
                     <p>Професійний тренер із класичного боксу. Допомагає учням опанувати класичну школу удару та захисту.</p>
                     <ul>
-                        <li><strong>Спрямованість:</strong> Постановка акцентованого удару, робота над захисними комбінаціями, реакцією та загальною фізичною підготовкою.</li>
-                        <li><strong>Для кого:</strong> Ефективні тренування як для тих, хто ніколи не займався боксом, так і для спортсменів, які прагнуть якісно покращити свої навички.</li>
-                        <li><strong>Атмосфера:</strong> Висока інтенсивність занять та увага до кожного нюансу техніки безпеки й виконання вправ.</li>
+                        <li><strong>Спрямованість:</strong> Постановка нокаутуючого удару, робота над захисними комбінаціями та загальна фізична підготовка.</li>
+                        <li><strong>Для кого:</strong> Ефективні тренування як для новачків, так і для тих, хто прагне вдосконалити боксерські навички.</li>
                     </ul>
                 </div>
             </div>
@@ -778,9 +867,8 @@
                     <div class="role-badge">ММА / Силова підготовка</div>
                     <p>Тренер зі змішаних єдиноборств та атлетичної підготовки спортсменів.</p>
                     <ul>
-                        <li><strong>Спеціалізація:</strong> Розвиток функціональної сили, вибухової потужності, витривалості та атлетизму, критично необхідних для сучасного бійця ММА.</li>
-                        <li><strong>Стиль:</strong> Інтенсивні, системні навантаження, спрямовані на розвиток м'язового корсета та виховання залізних вольових якостей.</li>
-                        <li><strong>Підхід:</strong> Комплексна робота над фізичними кондиціями в поєднанні з технікою бойових мистецтв.</li>
+                        <li><strong>Спеціалізація:</strong> Розвиток функціональної сили, вибухової потужності та атлетизму, необхідних для сучасного бійця ММА.</li>
+                        <li><strong>Стиль:</strong> Інтенсивні та системні навантаження для виховання вольових якостей.</li>
                     </ul>
                 </div>
             </div>
@@ -806,8 +894,8 @@
     </section>
 
     <section id="prices" style="background: #151515;">
-        <h2 class="section-title">Прайс-<span>лист</span></h2>
-        <p style="text-align: center; color: var(--text-muted); margin-top: -30px; margin-bottom: 40px; font-size: 14px;">Ціни на тренування в центрі єдиноборств (стадіон «Металіст», 5 хв від метро)</p>
+        <h2 class="section-title">Прайс <span>на послуги</span></h2>
+        <p style="text-align: center; color: var(--text-muted); margin-top: -30px; margin-bottom: 40px; font-size: 14px;">Вартість абонементів та індивідуальних занять</p>
 
         <div class="prices-container">
             <div class="price-card">
@@ -842,7 +930,7 @@
                     <span>500 грн</span>
                 </div>
                 <div class="price-row">
-                    <span>Артем Волянський</span>
+                    <span>Артем Воляньский</span>
                     <span>400 грн</span>
                 </div>
                 <div class="price-row">
@@ -881,6 +969,139 @@
                 <li>Оплата при активованому абонементі поверненню не підлягає.</li>
                 <li>Запис на індивідуальні тренування здійснюється за передоплатою 50%.</li>
             </ul>
+        </div>
+    </section>
+
+    <section id="schedule" style="background: #121212;">
+        <h2 class="section-title">Розклад <span>занять</span></h2>
+        <p style="text-align: center; color: var(--text-muted); margin-top: -30px; margin-bottom: 40px; font-size: 14px;">Актуальний графік групових тренувань по днях тижня</p>
+
+        <div class="schedule-standalone-card">
+            <h2 class="section-title">графік <span>тренувань</span></h2>
+            
+            <div class="schedule-grid-days">
+                <div class="schedule-day-box">
+                    <h4>ПН / СР / ПТ</h4>
+                    <div class="schedule-item">
+                        <span class="sched-time">15:00</span>
+                        <span class="sched-info">Самооборона</span>
+                        <span class="sched-trainer">Дарина Файзуліна</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="sched-time">16:00</span>
+                        <span class="sched-info">Кікбоксинг</span>
+                        <span class="sched-trainer">Артем Воляньский</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="sched-time">16:00</span>
+                        <span class="sched-info">ММА діти</span>
+                        <span class="sched-trainer">Максим Норець</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="sched-time">17:00</span>
+                        <span class="sched-info">Бокс діти</span>
+                        <span class="sched-trainer">Ігор Кавиршин</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="sched-time">17:00</span>
+                        <span class="sched-info">Фітбоксинг</span>
+                        <span class="sched-trainer">Анна Кавиршина</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="sched-time">18:00</span>
+                        <span class="sched-info">Джиу-джитсу</span>
+                        <span class="sched-trainer">Максим Білько</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="sched-time">18:00</span>
+                        <span class="sched-info">Бокс</span>
+                        <span class="sched-trainer">Богдан Татарчук</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="sched-time">19:00</span>
+                        <span class="sched-info">Тайський бокс</span>
+                        <span class="sched-trainer">Олександр Чурсін</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="sched-time">20:00</span>
+                        <span class="sched-info">Жіночий бокс</span>
+                        <span class="sched-trainer">Анна Кавиршина</span>
+                    </div>
+                </div>
+
+                <div class="schedule-day-box">
+                    <h4>ВТ / ЧТ</h4>
+                    <div class="schedule-item">
+                        <span class="sched-time">16:00</span>
+                        <span class="sched-info">Бокс</span>
+                        <span class="sched-trainer">Віталій Татарчук</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="sched-time">16:30</span>
+                        <span class="sched-info">Кікбоксинг діти</span>
+                        <span class="sched-trainer">Ігор Кавиршин</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="sched-time">17:00</span>
+                        <span class="sched-info">ММА новачки</span>
+                        <span class="sched-trainer">Віталій Ярмак</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="sched-time">17:30</span>
+                        <span class="sched-info">Кікбоксинг юн.</span>
+                        <span class="sched-trainer">Ігор Кавиршин</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="sched-time">17:30</span>
+                        <span class="sched-info">Тайський бокс</span>
+                        <span class="sched-trainer">Олександр Чурсін</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="sched-time">18:00</span>
+                        <span class="sched-info">ММА юніори</span>
+                        <span class="sched-trainer">Віталій Ярмак</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="sched-time">19:00</span>
+                        <span class="sched-info">Кікбоксинг дор.</span>
+                        <span class="sched-trainer">Ігор Кавиршин</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="sched-time">19:30</span>
+                        <span class="sched-info">ММА дорослі</span>
+                        <span class="sched-trainer">Віталій Ярмак</span>
+                    </div>
+                </div>
+
+                <div class="schedule-day-box">
+                    <h4>СУБОТА</h4>
+                    <div class="schedule-item">
+                        <span class="sched-time">11:00</span>
+                        <span class="sched-info">Бокс</span>
+                        <span class="sched-trainer">Віталій Татарчук</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="sched-time">11:00</span>
+                        <span class="sched-info">Кікбоксинг юн.</span>
+                        <span class="sched-trainer">Ігор Кавиршин</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="sched-time">12:30</span>
+                        <span class="sched-info">Кікбоксинг дор.</span>
+                        <span class="sched-trainer">Ігор Кавиршин</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="sched-time">14:00</span>
+                        <span class="sched-info">ММА юніори</span>
+                        <span class="sched-trainer">Віталій Ярмак</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="sched-time">17:00</span>
+                        <span class="sched-info">Тайський бокс</span>
+                        <span class="sched-trainer">Олександр Чурсін</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
