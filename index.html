@@ -207,6 +207,7 @@
             padding: 90px 20px;
             max-width: 1100px;
             margin: 0 auto;
+            scroll-margin-top: 80px;
         }
 
         .section-title {
@@ -233,6 +234,91 @@
             color: var(--text-muted);
             margin-bottom: 20px;
             font-size: 15px;
+        }
+
+        .achievements-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .achievements-text h3 {
+            font-size: 24px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .achievements-text p {
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+
+        .achievements-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .achievements-list li {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .achievements-media {
+            background: url('https://i.postimg.cc/15rvXM0k/IMG-20260923-095358-161.jpg') center/cover no-repeat;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            height: 320px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            color: var(--text-main);
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .achievements-media::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.2));
+            border-radius: 6px;
+        }
+
+        .achievements-media > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .achievements-media a {
+            color: #fff;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-top: 15px;
+            font-weight: 700;
+            font-size: 13px;
+            transition: background 0.2s;
+            backdrop-filter: blur(4px);
+        }
+
+        .achievements-media a:hover {
+            background: rgba(255,255,255,0.3);
         }
 
         .directions-grid {
@@ -401,22 +487,11 @@
             scroll-margin-top: 100px;
         }
 
-        .schedule-standalone-title {
-            font-size: 26px;
-            font-weight: 900;
-            text-transform: uppercase;
-            margin-bottom: 35px;
-            text-align: center;
-            letter-spacing: 1px;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 15px;
-        }
-
         .schedule-grid-days {
             display: grid;
             grid-template-columns: repeat(2, 1fr); 
             gap: 30px;
-}
+        }
 
         .schedule-day-box {
             background: #161616;
@@ -430,7 +505,7 @@
             max-width: 500px; 
             margin: 0 auto;
             width: 100%;
-}
+        }
 
         .schedule-day-box h4 {
             font-size: 16px;
@@ -632,7 +707,7 @@
         }
 
         @media (max-width: 950px) {
-            .prices-container, .about-grid, .trainer-profile-grid, .hero-features, .directions-grid {
+            .prices-container, .about-grid, .achievements-card, .trainer-profile-grid, .hero-features, .directions-grid {
                 grid-template-columns: 1fr;
             }
             .hero h1 {
@@ -653,6 +728,7 @@
         </div>
         <nav>
             <a href="#about">Про клуб</a>
+            <a href="#achievements">Досягнення</a>
             <a href="#directions">Напрямки</a>
             <a href="#trainers">Тренери</a>
             <a href="#prices">Прайс</a>
@@ -700,7 +776,33 @@
         </div>
     </section>
 
-    <section id="directions" style="background: #151515;">
+    <section id="achievements" style="background: #151515;">
+        <h2 class="section-title">Наші <span>досягнення</span></h2>
+        <div class="achievements-card">
+            <div class="achievements-text">
+                <h3>Тріумф збірної на Чемпіонаті Європи</h3>
+                <p>Нашу команду на міжнародній арені представляли талановиті спортсмени, які продемонстрували залізну волю, характер та високу майстерність:</p>
+                
+                <ul class="achievements-list">
+                    <li><strong>Старцева Дар'я</strong> — 🥇🥇🥇 (Абсолютний чемпіон)</li>
+                    <li><strong>Маркевич Дмитро</strong> — 🥇🥈🥉</li>
+                    <li><strong>Коновалов Кирило</strong> — 🥈🥈</li>
+                    <li><strong>Файзуліна Дарина</strong> — 🥉🥉</li>
+                    <li><strong>Хрипунов Дмитро</strong> — 🥉</li>
+                    <li><strong>Волянський Артем</strong> — 🥉🥉</li>
+                </ul>
+
+                <p style="margin-top: 15px;">У напружених поєдинках наші бійці вибороли престижні чемпіонські пояси та нагороди, гідно представивши клуб на європейському рівні.</p>
+                <p>Цей блискучий результат став офіційним <strong>пропуском на Чемпіонат Світу</strong>. Наразі команда веде потужну та інтенсивну підготовку до світової першості, щоб підняти прапор клубу ще вище!</p>
+            </div>
+            <div class="achievements-media">
+                <span style="font-weight: 700; text-transform: uppercase; font-size: 13px; letter-spacing: 1px;">Чемпіонат Європи ІСКА</span>
+                <a href="gallery.html" target="_blank"><i class="fa-solid fa-images"></i> Переглянути всі фото</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="directions">
         <h2 class="section-title">Наші <span>напрямки</span></h2>
         <p style="text-align: center; color: var(--text-muted); margin-top: -30px; margin-bottom: 40px; font-size: 14px;">Оберіть напрямок, щоб плавно перейти до профільних тренерів:</p>
         
@@ -727,12 +829,12 @@
             </a>
             <a href="#trainer-anna" class="direction-card">
                 Жіноча самооборона
-                <span>Анна Кавиршина та Дарина Файзуліна</span>
+                <span>Анна Кавиршина та Вікторія</span>
             </a>
         </div>
     </section>
 
-    <section id="trainers">
+    <section id="trainers" style="background: #151515;">
         <h2 class="section-title">Наші <span>Тренери</span></h2>
 
         <div class="trainer-profile-section" id="trainer-igor">
@@ -745,7 +847,7 @@
                     <ul>
                         <li><strong>Досягнення:</strong> Чемпіон Європи, призер Чемпіонату світу з карате, багаторазовий чемпіон України з кікбоксингу.</li>
                         <li><strong>Школа:</strong> Переймав досвід під керівництвом визнаних майстрів старої школи.</li>
-                        <li><strong>Регалії:</strong> Віцепрезидент Федерації кікбоксингу ISKA у Харківській області, тренер збірної України з кікбоксингу (тренер-викладач 1-ї категорії).</li>
+                        <li><strong>Регалії:</strong> Віце-президент Федерації кікбоксингу ISKA у Харківській області, тренер збірної України з кікбоксингу (тренер-викладач 1-ї категорії).</li>
                     </ul>
                 </div>
             </div>
@@ -762,6 +864,21 @@
                         <li><strong>Підхід:</strong> Формування правильної техніки ударів, розвиток витривалості, координації та впевненості у власних силах.</li>
                         <li><strong>Спеціалізація:</strong> Робота з новачками, постановка багатства рухів у ринзі та ефективні програми жіночої самооборони.</li>
                         <li><strong>Атмосфера:</strong> Заняття проходять динамічно, з максимальною увагою до деталей та технічної безпеки.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="trainer-profile-section" id="trainer-viktoria">
+            <div class="trainer-profile-grid">
+                <div class="trainer-big-img" style="background: #222; display: flex; align-items: center; justify-content: center; color: #777; font-size: 14px;">Фото очікується</div>
+                <div class="trainer-details">
+                    <h3>Вікторія</h3>
+                    <div class="role-badge">Самооборона / Жіночий бокс</div>
+                    <p>Професійна тренерка, яка проводить ефективні заняття з самооборони та жіночого боксу в команді Boar Fight Club.</p>
+                    <ul>
+                        <li><strong>Спрямованість:</strong> Опанування практичних навичок самозахисту, постановка ударної техніки та розвиток впевненості.</li>
+                        <li><strong>Підхід:</strong> Безпечне та комфортне середовище для учениць будь-якого рівня підготовки.</li>
                     </ul>
                 </div>
             </div>
@@ -788,7 +905,7 @@
                 <div class="trainer-big-img" style="background-image: url('https://i.postimg.cc/wvSrYFYR/IMG-20260921-225026-731.jpg');"></div>
                 <div class="trainer-details">
                     <h3>Дарина Файзуліна</h3>
-                    <div class="role-badge">Кікбоксинг / Жіноча самооборона • Нове ім'я в клубі</div>
+                    <div class="role-badge">Кікбоксинг / Фітбоксинг • Нове ім'я в клубі</div>
                     <p>Амбітна та енергійна тренерка, яка приєдналася до команди Boar Fight Club і допомагає дівчатам та жінкам опановувати навички самозахисту.</p>
                     <ul>
                         <li><strong>Спрямованість:</strong> Ефективні програми жіночої самооборони, розвиток впевненості у власних силах, координації та базової ударної техніки з кікбоксингу.</li>
@@ -801,7 +918,7 @@
 
         <div class="trainer-profile-section" id="trainer-alexander">
             <div class="trainer-profile-grid">
-                <div class="trainer-big-img" style="background-image: url('https://i.postimg.cc/63xWZKGP/IMG-20260921-114757-067.jpg');"></div>
+                <div class="trainer-big-img" style="background-image: url('https://i.postimg.cc/zvdJ7TZH/photo-2026-09-23-09-23-59.jpg');"></div>
                 <div class="trainer-details">
                     <h3>Олександр Чурсін</h3>
                     <div class="role-badge">Муай-Тай (Тайський бокс)</div>
@@ -893,7 +1010,7 @@
 
     </section>
 
-    <section id="prices" style="background: #151515;">
+    <section id="prices">
         <h2 class="section-title">Прайс <span>на послуги</span></h2>
         <p style="text-align: center; color: var(--text-muted); margin-top: -30px; margin-bottom: 40px; font-size: 14px;">Вартість абонементів та індивідуальних занять</p>
 
@@ -928,6 +1045,10 @@
                 <div class="price-row">
                     <span>Анна Кавиршина</span>
                     <span>500 грн</span>
+                </div>
+                <div class="price-row">
+                    <span>Вікторія</span>
+                    <span>400 грн</span>
                 </div>
                 <div class="price-row">
                     <span>Артем Воляньский</span>
@@ -972,20 +1093,18 @@
         </div>
     </section>
 
-    <section id="schedule" style="background: #121212;">
+    <section id="schedule" style="background: #151515;">
         <h2 class="section-title">Розклад <span>занять</span></h2>
         <p style="text-align: center; color: var(--text-muted); margin-top: -30px; margin-bottom: 40px; font-size: 14px;">Актуальний графік групових тренувань по днях тижня</p>
 
-        <div class="schedule-standalone-card">
-            <h2 class="section-title">графік <span>тренувань</span></h2>
-            
+        <div class="schedule-standalone-card" style="background: #121212; margin-bottom: 0;">
             <div class="schedule-grid-days">
                 <div class="schedule-day-box">
                     <h4>ПН / СР / ПТ</h4>
                     <div class="schedule-item">
                         <span class="sched-time">15:00</span>
                         <span class="sched-info">Самооборона</span>
-                        <span class="sched-trainer">Дарина Файзуліна</span>
+                        <span class="sched-trainer">Вікторія</span>
                     </div>
                     <div class="schedule-item">
                         <span class="sched-time">16:00</span>
@@ -1005,7 +1124,7 @@
                     <div class="schedule-item">
                         <span class="sched-time">17:00</span>
                         <span class="sched-info">Фітбоксинг</span>
-                        <span class="sched-trainer">Анна Кавиршина</span>
+                        <span class="sched-trainer">Дарина Файзуліна</span>
                     </div>
                     <div class="schedule-item">
                         <span class="sched-time">18:00</span>
@@ -1025,7 +1144,7 @@
                     <div class="schedule-item">
                         <span class="sched-time">20:00</span>
                         <span class="sched-info">Жіночий бокс</span>
-                        <span class="sched-trainer">Анна Кавиршина</span>
+                        <span class="sched-trainer">Вікторія</span>
                     </div>
                 </div>
 
